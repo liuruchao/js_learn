@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变量类型和计算-1</title>
+</head>
+<body>
+	 <script>
+	 	//值类型
+	 	var a=100;
+	 	var b=a;
+	 	a=200;
+	 	console.log(b); //100
+	 	//应用类型
+        var a1 = {age:20};
+        var b1 =a1;
+        b1.age = 21;
+        console.log(a1.age); //21
+        //typeof
+        typeof undefined ; //undefined
+        typeof 'ad'; //string
+        typeof 123; //number
+        typeof true ;//boolean
+        typeof {} ;//object
+        typeof null ;//object
+        typeof console.log; //function
+        //强制类型转换
+          //字符串拼接
+        var a2 = 100 + 10 ;//110
+        var b2 = 100 + '10'; //'10010'
+          //==运算符
+        100 == '100'; //true
+        0 == ''; //true
+        null == undefined ; //true
+        var z = true;
+          //if语句
+        if(z){};
+        var z1 = '';
+        if(z1){};
+          //逻辑运算
+         console.log(10 && 0); //0
+         console.log('' || 'abs'); //abs
+         console.log(!window.abs); //true
+
+	 </script>
+</body>
+</html>
