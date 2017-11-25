@@ -1,0 +1,33 @@
+1.引用类型 （对象，数组，函数）
+把a赋值成一个对象，a的指针指向了这个对象，把a复制给了b，b的指针又指向了这个对象，同一个对象，b改变其中一个属性值，a引用时就是改变后的属性值
+特点：加很多属性，共用内存，
+2.typeof
+检测值类型详细类型，不能准确检测哪种引用类型
+3.强制类型转换
+·字符串拼接
+·==运算符
+·if语句
+·逻辑运算
+
+
+问题？？
+
+
+
+1:js中typeof能得到那些类型
+  undefined string number boolean object function
+2.何时使用===何时使用==
+  if(obj.a == null){
+  //  相当于obj.a===null || obj.a === undefined
+  //jquery源码中推荐写法
+  }
+3.js中有哪些内置函数
+  Object Array Boolean Number String Function Date RegExp Error
+4.js变量按照存储方式区分为那些类型，并描述特点
+ 值类型 引用类型
+5.如何理解JSON
+  在js中也是一个对象
+  其它时数据格式
+  JSON.stringify({a;10,b:20}) 把对象变字符串
+  JSON.parse('{"a":10,"b":20}')
+  把字符串变对象
