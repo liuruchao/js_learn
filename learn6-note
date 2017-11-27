@@ -1,0 +1,7 @@
+1.DOM是哪种基本的数据结构
+   树
+2.DOM操作的常用API有哪些
+  获取节点
+3.DOM节点的Attribute和propety有何区别
+  ·property只是一个js对象的属性的修改
+  ·Attribute是对html标签属性的修改
