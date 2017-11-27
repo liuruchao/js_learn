@@ -1,0 +1,42 @@
+1.什么是异步？
+ ·何时需要异步
+    在可能发生等待的情况
+    等待过程中不能像alert一样阻塞程序进行
+    因此，所以的“等待的情况”都需要异步
+2.前端使用异步的场景
+  ·定时任务：setTimeout,setInverval
+  ·网络请求：ajax请求，动态<img>加载
+  ·事件绑定
+     console.log('start');
+   var but = document.getElementById('but');
+   but.addEventListener('click',function(){
+   	alert('clicked');
+   });
+   console.log('end');
+3.单线程
+   console.log(100);
+   setTimeout(function(){
+			console.log(200);
+		},1000);
+	console.log(300);
+   ·执行第一行，打印100
+   ·执行setTimeout后，传入setTiemout的函数会被暂存起来，不会立即执行（单线程的特点，不能同时干两件事）
+   ·待所有程序执行完，处于空闲状态时，会立马看有没有暂存起来的要执行
+   ·发现暂存起来的setTimeout中的函数无需等待时间，就立即来过来执行
+
+
+
+1.同步和异步的区别？分别举一个同步和异步的例子
+  ·同步会阻塞代码执行，异步不会
+  ·alert是同步，setTimeout是异步
+2.一个关于setTimeout的笔试题
+   console.log(1);
+   setTimeout(function(){
+   console.log(2)
+   },0);
+   console.log(3);
+   setTimeout(function(){
+   console.log(4)
+   },1000);
+   console.log(5);
+3.前端使用异步的场景有哪些
