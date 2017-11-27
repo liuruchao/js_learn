@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>异步和单线程</title>
+</head>
+<body>
+	<button id="but">点击</button>
+	<script>
+		//什么是异步
+		console.log(100);
+		setTimeout(function(){
+			console.log(200);
+		},1000);
+		console.log(300);    //先打印100，后300，一秒后200
+	    //对比同步
+	    console.log(100);
+	    alert(200);//1秒后点击确认，再打印300,会阻塞
+	    console.log(300);
+  //单线程
+    
+
+	</script>
+</body>
+</html>
