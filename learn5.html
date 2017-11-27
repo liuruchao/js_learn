@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>日期、Math、数组、对象API</title>
+</head>
+<body>
+	<script>
+     //日期
+      Date.now(); //获得当前时间毫秒数，至1970年
+    var dt = new Date();
+    dt.getTime();//毫秒数
+    dt.getFullYear();//年
+    dt.getMonth();//月（0-11）
+    dt.getDate();//日 （0-31）
+    dt.getHours();//小时（0-23）
+    dt.getMinutes();//分钟（0-59）；
+    dt.getSeconds();//秒（0-59）
+    //Math
+     Math.random();//获取随机数（0-1）
+     //数组API
+      //forEach
+       var arr = [1,2,3];
+       arr.forEach(function(item,index){
+       	//遍历数组所有元素
+       	console.log(index,item);
+       })
+       //every
+       var arr = [1,2,3];
+       var result = arr.every(function(item,index){
+       	//用来判断所有的数组元素，都满足一个条件
+       	if(item<4){
+       		return true;
+       	}
+       });
+       console.log(result);
+       //some 只要有一个元素满足条件即可
+     //对象API
+       for in
+	</script>
+</body>
+</html>1
