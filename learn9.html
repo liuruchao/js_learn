@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax 和跨域</title>
+</head>
+<body>
+	<button id="click">点击</button>
+	<div id="div1"></div>
+	<script>
+      var i = document.getElementById('click');
+      i.addEventListener('click',fn);
+      function fn(){
+      	var xmlh = new XMLHttpRequest();
+      	xmlh.onreadystatechange=function(){
+      		if(xmlh.readyState==4 && xmlh.status==200){
+      			document.getElementById('div1').innerHTML= 
+      			 xmlh.responseText;
+      		}else{
+      			alert("未成功");
+      		}
+      	};
+      	xmlh.open("GET","http://39.106.10.216/ajax.txt","true");
+      	xmlh.send();
+      }
+      
+	</script>
+</body>
+</html>
