@@ -1,0 +1,24 @@
+1.XMLHttpRequest
+  对象 
+2.状态码
+3.跨域
+   ·什么是跨域
+      ·浏览器有同源策略，不允许ajax访问其它域接口
+      ·跨域条件：协议、域名、端口，有一个不同就算跨域
+    ·有三个标签允许跨域加载资源
+       <img>  用于打点统计，统计网站可能是其它域
+
+       <link> 可以使用CDN,CDN的也是其它域
+       <script>可以用于JSONP;
+    ·所有的跨域请求都必须经过信息方提供
+    ·如果未经允许即可获得，那就浏览器同源策源出现漏洞
+
+
+
+
+
+1.手动编写一个ajax,不依赖第三方库
+2.跨域的几种实现方式
+   ·服务器段设置http header
+    response.setHeader("Access-Control-Allow-Origin","http://a.com,http://")
+   ·JSONP
