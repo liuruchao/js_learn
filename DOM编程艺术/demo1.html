@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js图片库</title>
+	<style>
+	  #placehold{
+	  	width:200px;
+	  	height:200px;
+	  	border:1px solid black;
+	  }
+		
+	</style>
+</head>
+<body>
+	 <h2>picture-place</h2>
+	<ul>
+		<li><a href="images/1.jpg" title="onepicture" onclick="showPic(this);return false;">onepic</span></li>
+		<li><a href="images/2.jpg" title="twopicture" onclick="showPic(this);return false;">twopic</a></li>
+		<li><a href="images/4.jpg" title="treepicture" onclick="showPic(this);return false;">fourpic</a></li>
+	</ul>
+	<div><img id="placehold" src="" alt=""></div>
+	<p id="description">choose an image</p>
+	<script>
+		// var picList = document.getElementsByTagName('li');
+		// var i;
+		// for(i=0;i<picList.length;i++){
+
+		// 	picList[i].addEventListener('click',showPic(picList[i]).firstChild);
+		// }
+		function showPic(whichpic){
+			var source = whichpic.getAttribute('href');
+			var txt = whichpic.getAttribute('title');
+			var placehoder = document.getElementById('placehold');
+			var description = document.getElementById('description');
+			placehoder.setAttribute('src',source);
+			// description.innerHTML = txt;
+			//使用nodeValue
+			description.firstChild.nodeValue =txt;
+
+			
+		}
+		//childNodes属性
+		window.onload=function countBodyChild(){
+			var bodyElement = document.getElementsByTagName('body')[0];
+			alert(bodyElement.childNodes.length);
+			console.log(bodyElement.nodeType);
+		}
+		//nodeType 属性
+
+	</script>
+</body>
+</html>

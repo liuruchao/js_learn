@@ -1,0 +1,13 @@
+/***********第三、四章**********/
+1.DOM把文档表示成一棵树，家谱树，父、子、兄弟
+2.节点：元素节点、文本节点、属性节点
+3.获取元素：getElementById （返回对象）
+getElementsByTagName（返回数组） 
+getElementsByClassName(返回数组)
+4.获取属性和设置属性：object.getAttribute object.setAttribute
+5.事件处理函数 event = "function()";
+6.childNodes属性，将子元素检索出来
+7.nodeType属性，
+ 元素节点的nodeType属性值为1
+ 属性节点的nodeType属性值为2
+ 文本节点的nodeType属性值为3
