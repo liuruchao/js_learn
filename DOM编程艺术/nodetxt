@@ -11,3 +11,11 @@ getElementsByClassName(返回数组)
  元素节点的nodeType属性值为1
  属性节点的nodeType属性值为2
  文本节点的nodeType属性值为3
+8.nodeValue属性
+9.firstChild和lastChild
+10.性能考虑
+    尽量少访问DOM和尽量减少标记
+    合并和放置脚本
+    压缩脚本
+    
+

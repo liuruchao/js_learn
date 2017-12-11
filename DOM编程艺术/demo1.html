@@ -9,25 +9,53 @@
 	  	height:200px;
 	  	border:1px solid black;
 	  }
-		
+	  li{
+	  	float:left;
+	  	margin-left: 20px;
+	  	list-style: none;
+	  }
+	  li img{
+	  	width:140px;
+	  }
+	div{
+		clear: both;
+		margin-top: 150px;
+	}
 	</style>
 </head>
 <body>
 	 <h2>picture-place</h2>
-	<ul>
-		<li><a href="images/1.jpg" title="onepicture" onclick="showPic(this);return false;">onepic</span></li>
-		<li><a href="images/2.jpg" title="twopicture" onclick="showPic(this);return false;">twopic</a></li>
-		<li><a href="images/4.jpg" title="treepicture" onclick="showPic(this);return false;">fourpic</a></li>
+	<ul id="imagegallery">
+		<li><a href="images/1.jpg" title="onepicture"><img src="images/1.jpg" alt=""></span></li>
+		<li><a href="images/2.jpg" title="twopicture"><img src="images/2.jpg" alt=""></a></li>
+		<li><a href="images/4.jpg" title="treepicture"><img src="images/4.jpg" alt=""></a></li>
 	</ul>
-	<div><img id="placehold" src="" alt=""></div>
-	<p id="description">choose an image</p>
+	<div><img id="placehold" src="" alt="">
+	<p id="description">choose an image</p></div>
 	<script>
-		// var picList = document.getElementsByTagName('li');
-		// var i;
-		// for(i=0;i<picList.length;i++){
+		
+		window.onload=function prepareGalley(){
+            if(!document.getElementById){
+            	return false;
+            }
+            if(!document.getElementsByTagName){
+            	return false;
+            }
+            if (!document.getElementById('imagegallery')) {
+            	return false;
+            }
+            var gallery = document.getElementById('imagegallery');
+            var links= gallery.getElementsByTagName('a');
+            for(let i=0;i<links.length;i++){
+            	links[i].onclick=function(e){
+            		event.preventDefault();
+            		
+            		showPic(this);
+            	
+            	}
+            }
 
-		// 	picList[i].addEventListener('click',showPic(picList[i]).firstChild);
-		// }
+		}
 		function showPic(whichpic){
 			var source = whichpic.getAttribute('href');
 			var txt = whichpic.getAttribute('title');
@@ -41,11 +69,11 @@
 			
 		}
 		//childNodes属性
-		window.onload=function countBodyChild(){
+		/*   window.onload=function countBodyChild(){
 			var bodyElement = document.getElementsByTagName('body')[0];
-			alert(bodyElement.childNodes.length);
+			console.log(bodyElement.childNodes.length);
 			console.log(bodyElement.nodeType);
-		}
+		}   */
 		//nodeType 属性
 
 	</script>
