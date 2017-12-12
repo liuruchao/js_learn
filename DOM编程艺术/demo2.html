@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> 脚本标记</title>
+</head>
+<body>
+	<h1>what is the Document Object Model</h1>
+	<p>
+		the<abbr title="world wide web consortium">W3C</abbr>defines
+		the <abbr title="">DOM</abbr>as:
+	</p>
+	<p>
+		it is an <abbr title="Application progaming Interface">API</abbr>
+		that can be used to naigate <abbr title="extensible masrkup language">XML</abbr>
+	</p>
+   <button id="btn">点击</button>
+	<script>
+		var btn1 = document.getElementById('btn');
+        btn1.onclick=displayabbrList;
+      function displayabbrList(){
+      	if(!document.getElementById){ return false;}
+      	if(!document.createElement){ return false;}
+      	if(!document.createTextNode){ return false;}
+      	//取出所有abbr元素
+      	var abbrList = document.getElementsByTagName('abbr');
+        //判断列表内是否有元素
+      	if (abbrList.length<1) {
+            return false;
+      	}
+      	var defs = new Array();
+      	//取出abbr的title属性和文本
+      	for (let i=0; i<abbrList.length; i++){
+      		var curret_abbr = abbrList[i];
+      		if(curret_abbr.childNodes<1) continue;
+      		var definition = curret_abbr.getAttribute('title');
+      		//如果没有属性就继续循环
+      		if(definition=='') continue;
+      		var key = curret_abbr.lastChild.nodeValue;
+      		defs[key] = definition;
+	
+      	}
+      	//创建dl标签
+      	var dist = document.createElement('dl');
+      	
+      	
+      	for(key in defs){
+      		//创建标题
+      		var dititle = document.createElement('dt');
+      		
+      		var curret_abbrTitle = document.createTextNode(key);
+      		dititle.appendChild(curret_abbrTitle);
+      		//创建内容
+      		var didecText = document.createElement('dd');
+            var curret_abbrText = document.createTextNode(defs[key]);
+            didecText.appendChild(curret_abbrText);
+            dist.appendChild(dititle);
+            dist.appendChild(didecText);
+      	}
+
+      	var bodyList = document.getElementsByTagName('body')[0];
+      	bodyList.appendChild(dist);
+      }
+	</script>
+</body>
+</html>

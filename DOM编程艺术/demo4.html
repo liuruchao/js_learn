@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo4</title>
+	<style>
+		table{
+			margin:auto;
+			border:1px solid red;
+		}
+		.styleBefore{
+			color:red;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		/*通过DOM添加的样式*/
+		.styleAfter{
+			color:blue;
+			border:1px solid grey;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>学校</th>
+				<th>年级</th>
+				<th>成绩</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>广灵一中</td>
+				<td>三</td>
+				<td>23</td>
+			</tr>
+			<tr>
+				<td>广灵二中</td>
+				<td>四 </td>
+				<td>456</td>
+			</tr>
+			<tr>
+				<td>广灵三中</td>
+				<td>勿</td>
+				<td>89</td>
+			</tr>
+			<tr>
+				<td>幅度萨芬</td>
+				<td>飞洒</td>
+				<td> 多少</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- 改变class名 -->
+  <p class="styleBefore">通过改变classname的名来改变样式</p>
+  <p class="styleBefore">通过改变classname的名来改变样式，额家乐福封杀饿了</p>
+  <button id="btn">点击改变样式</button>
+	<script>
+		window.onload=function styleTable(){
+		var tab = document.getElementsByTagName('table')[0];
+        var trList = tab.getElementsByTagName('tr');
+        if(trList.length<1){
+        	return false;
+        }
+        for(let i=0;i<trList.length;i+=2){
+            trList[i].style.background='red';
+        }
+}
+
+	</script>
+	<script>
+		var btn = document.getElementById('btn');
+		var pList = document.getElementsByTagName('p');
+		function changeClassName(elem,value){
+			if(!elem.className){
+				elem.className = value;
+			}else{
+				elem.className += (' ' + value);
+			}
+		}
+       btn.onclick=changeClassName(pList[0],'styleAfter');
+	</script>
+</body>
+</html>
