@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画</title>
+	<style>
+	</style>
+</head>
+<body>
+	<p id="top">hello world</p>
+	<p id="btm">hellp world</p>
+    <button id="btn">点击开始动画</button>
+
+
+<script>
+     
+
+  var first = document.getElementById('top')
+  first.style.position = "absolute";
+  first.style.left = "50px";
+  first.style.top = "100px";
+
+  var last = document.getElementById('btm')
+    last.style.position = "absolute";
+    last.style.left = "50px";
+    last.style.top = "150px";
+	var btn = document.getElementById("btn");
+	function moveElement(elemId,final_x,final_y,repe){
+		var elem = document.getElementById(elemId);
+		var xpos = parseInt(elem.style.left);
+		var ypos = parseInt(elem.style.top);
+		if (xpos==final_x && ypos==final_y) {
+            clearInterval(repe);
+			return true;
+		}
+		if (xpos<final_x) {
+			dist = Math.ceil((final_x -xpos)/10);
+			xpos += dist;
+		}
+		if (xpos>final_x) {
+			dist = Math.ceil((xpos - final_x)/10);
+			xpos -= dist;
+		}
+		if (ypos<final_y) {
+			dist = Math.ceil((final_y - ypos)/10);
+			ypos += dist;
+		}
+		if (ypos>final_y) {
+			dist = Math.ceil((ypos-final_y)/10);
+
+			ypos -= dist;
+		}
+		elem.style.left = xpos + "px";
+		elem.style.top = ypos + "px";
+	}
+	
+    btn.onclick=function(){
+    	repe1 = setInterval("moveElement('top',350,300,repe1)",100);
+    	repe2 = setInterval("moveElement('btm',350,0,repe2)",100);
+
+    }  
+
+</script>
+</body>
+</html>
