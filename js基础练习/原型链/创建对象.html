@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建对象方法</title>
+</head>
+<body>
+	<script>
+	//1.原始模式，对象字面量方式
+	var person = {
+		name:'Jack',
+		age:19,
+		sayName:fucntion(){
+			alert(this.name);
+		}
+	}
+	//1.原始模式，Object构造函数方式
+	var person = new Object();
+	person.name = 'Jack';
+	person.age = 19;
+	person.sayName=function(){
+		alert(this.name);
+	};
+	//2.工厂模式，定义一个函数创建对象
+	function creatPerson(name,age){
+		var person = new Object();
+		person.name = name;
+		person.age = age;
+		person.sayName=fucntion(){
+			alert(this.name);
+		};
+		return person;
+	}
+	//调用
+	 var p1 = creatPerson('jack',90);
+	//3.构造函数
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+        this.sayName = function(){
+        	alert(this.name);
+        }
+	}
+	var p1 = new Person('jack',30);
+    //4.原型模式,直接定义prototype属性
+    function Person(){
+    	Person.prototype.name = "jack";
+    	Person.prototype.age　=10;
+    	Person.prototype.sayName = function(){
+    		alert(this.name);
+    	}
+     }
+     //4.原型模式，字面量定义方式
+     function Person(){}
+     	Person.prototype={
+          age:10,
+          name:'jack',
+          sayName:function(){
+          	alert(this.name);
+          }
+     	}
+     var p1 = new Person();
+     p1.name = 'mark';//此时原型对像中的name属性也会变为mark，引起其他实例的变化
+     //5.混合模式（构造加原型）
+     function Person(name,age){
+     	this.name = name;
+     	this.age = age;
+     }
+     Person.prototype = {
+     	hobby:['running','football'],
+     	sayName:function(){
+     		alert(this.name);
+     	},
+     	sayAge:function(){
+     		alert(this.age);
+     	}
+     };
+     var p1 = new Person('jack',10);
+       //将独立的属性方法放在构造函数中，共享的部分放入原型，既节省内存又保留对象实例的独立性
+
+    
+	</script>
+</body>
+</html>

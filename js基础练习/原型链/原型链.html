@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型链</title>
+</head>
+<body>
+	<script>
+	   function Person(name){
+	   	this.name = name;
+	   }
+	   function Mother(){}
+	   Mother.prototype={
+	   	age:18,
+	   	home:['Beijing','Shanghai']
+	   };
+	   Person.prototype = new Mother();
+	   var p1 = new Person('jack');
+	   var p2 = new Person('Mark');
+	   p1.age=20;
+	   console.log(p1.age);
+	  
+	   //原型链的继承
+	   console.log(p2.age); 
+	   
+
+	   
+	   //p1实例没有home属性，搜索机制会向上搜索，到Mother.prototype,然后修改home[0],重写原型，p2继承
+	   p1.home[0] = "shengzheng";
+	   console.log(p2.home[0]);
+	   delete p1.age;
+       console.log(p1.age);
+       //即Mother.lastName
+       Person.prototype.lastName = "jin";
+       console.log(p1.lastName);
+       //实例的__proto__指向Person.prototype,即Mother
+       console.log(p1.__proto__.lastName);
+       //原型链的终点是NULL
+       console.log(p1.__proto__.__proto__.__proto__.__proto__);
+	</script>
+</body>
+</html>

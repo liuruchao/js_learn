@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习</title>
+</head>
+<body>
+
+ <script>
+   //1.比较数组
+   
+   function compare(arr1,arr2){
+   	  //判断是否为数组
+   	   if(!(arr1 instanceof Array == true &&　arr2 instanceof Array == 
+   	   	true) ){
+   	   	  return false;
+   	   }
+   	   result=[];
+   	   var arr;
+   	   //遍历
+       for(let i=0;i<arr1.length;i++){
+       	//，一个一个的比较，符合条件返回该元素
+       	arr=arr2.find(function(val){
+       		return  val.key===arr1[i];
+       	});
+       	if(arr){
+       		result.push(arr)
+       	}else{
+       		result.push({key:arr1[i],num1:'0',num2:'0',num3:'0',tot:'0'});
+       	}
+       //	arr?result.push(arr):result.push(arr[{key:arr1[i],num1:'0',num2:'0',num3:'0',tot:'0'}]);
+       }
+       
+   	}   
+var a1 = ['b','c'];
+var a2 = 
+	[{
+		key:'a',
+		num1:'1',
+		num2:'2',
+		num3:'5',
+		tot:'8'
+
+	},{
+		key:'b',
+		num1:'2',
+		num2:'3',
+		num3:'4',
+		tot:'3'
+	}];
+compare(a1,a2);
+//2.数组连续的最大长度
+var test = [1,2,3,4,5,8];
+function countLen(arr){
+	
+	//判断传入参数是否为数组及数组长度
+	if(arr instanceof Array != true || arr.length == 0){
+		return false;
+	}
+	var nowLen=1,maxLen=0;
+	//遍历
+	for(let i=1;i<arr.length;i++){
+		//判断相邻两元素相差是否为1
+		if(arr[i]-arr[i-1] == 1){
+			//是就当前连续长度加一
+			nowLen++;
+
+		}else{
+			//否则先判断连续长度是否大于最大长度
+           if(nowLen > maxLen){
+           	// 是就赋值
+           	maxLen = nowLen;
+           }
+           //然后初始化
+           nowLen = 1;
+		}
+	}
+    //循环完再判断一次当前长度是否大于最大连续长度
+	if(maxLen<nowLen){
+		maxLen=nowLen;
+	}
+   return maxLen;
+}
+//3.命名方式转换，
+  //驼峰式命名方式转“-”命名
+  function change1(str){
+  	str = str.replace(/([A-Z])/g,"-$1").toLowerCase();
+  	return str;
+  }
+  //-命名转驼峰式方式
+  function change2(str){
+  	str = str.replace(/-(\w)/g,function($0,$1){
+  		return $1.toUpperCase();
+  	});
+  	return str;
+  }
+
+   
+   
+
+ </script>
+	
+</body>
+</html>
