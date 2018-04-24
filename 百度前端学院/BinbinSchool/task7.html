@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>二叉树排序遍历</title>
+	<style>
+	    body{
+	    	transform-style: preserve-3d;
+	    	perspective:1000px;
+	    }
+		div{
+			border:1px solid;
+			margin:1em;
+			transition:all 0.5s;
+			transform-style: preserve-3d;
+	    	perspective:1000px;
+
+		}
+		div:hover{
+			transform:translateZ(20px);
+		}
+		#root{
+			display: flex;
+			width: 900px;
+			margin:2em auto;
+			justify-contetn:space-between;
+			height:400px;
+			align-items:stretch;
+		}
+		#root div{
+			flex-grow:1;
+			display: flex;
+		}
+		#r_left,#r_right{
+			margin: 2em 2em 2em 1em;
+			border:solid;
+		}
+		#r_left>div,#r_right>div{
+			margin:3em 3em 3em 1em;
+			border:solid;
+		}
+	</style>
+</head>
+<body>
+	<!-- 根节点 -->
+	<div id="root" class="flex_box">
+		<!-- 左子树 -->
+		<div id="r_left" class="flex_box">1
+			<div id="r_left_lchild" class="flex_box">3
+				<div class="flex_box">1</div>
+				<div class="flex_box">2</div>
+			</div>
+			<div id="r_left_rchild" class="flex_box">4
+				<div class="flex_box">1</div>
+				<div class="flex_box">2</div>
+			</div>
+		</div>
+		<!-- 右子树 -->
+		<div id="r_right" class="flex_box">2
+			<div id="r_right_lchild" class="flex_box">5
+				<div class="flex_box">1</div>
+				<div class="flex_box">2</div>
+			</div>
+			<div id="r_right_rchild" class="flex_box">6
+				<div class="flex_box">1</div>
+				<div class="flex_box">2</div>
+			</div>
+		</div>
+	</div>
+	<button id="DLR">前序遍历</button>
+	<button id="LDR">中序遍历</button>
+	<button id="LRD">后序遍历</button>
+	<script>
+	  window.onload=function(){
+
+
+		var root=document.querySelector("#root"), //根节点
+		    perface=document.querySelector("#DLR"), //前序
+		    middleOrder=document.querySelector("#LDR"), //中序
+		    postorder=document.querySelector("#LRD"); //后序
+        var nodeAll=document.querySelectorAll(".flex_box");//所有节点
+
+        //前序遍历
+        function drawPerface(node,arr){
+        	if(node!==null){
+        		arr.push(node);
+        		drawPerface(node.firstElementChild,arr);
+        		drawPerface(node.lastElementChild,arr);
+        	}
+        }
+
+        //中序遍历
+        function drawMiddle(node,arr){
+        	if(node!==null){
+        		drawMiddle(node.firstElementChild,arr);
+        		arr.push(node);
+        		drawMiddle(node.lastElementChild,arr);
+        	}
+        	
+    }
+        //后序遍历
+        function drawPost(node,arr){
+        	if(node!==null){
+        		drawPost(node.firstElementChild,arr);
+        		drawPost(node.lastElementChild,arr);
+        		arr.push(node);
+        	}
+        } 
+
+        //初始化背景
+
+        function boxBg(e){
+        	for(let i=0,len=nodeAll.length;i<len;i++){
+        		nodeAll[i].style.background="white";
+        	}
+        	//遍历到的节点改变颜色，覆盖掉原色
+        	e.style.background="red";
+        }
+
+        //过渡动画
+        var timer=null;
+        function draw(arr,i){
+        	clearTimeout(timer);
+        	timer=setInterval(function(){
+        		if(i>(arr.length-1)){  
+            	arr[arr.length-1].style.background="white";
+            	clearTimeout(timer);
+            }else{
+            	boxBg(arr[i]);
+            }
+            i++;
+        	},1000);
+            
+        }
+        
+        //处理所有函数
+        function tranverse(root,action){  //action要执行哪种遍历的函数名
+          let i=0;
+          var arrNode=[]; //存放遍历好节点的数组
+          action(root,arrNode);
+          draw(arrNode,i);
+        }
+        
+         
+        //添加事件
+        perface.onclick=function(){
+        	tranverse(root,drawPerface);
+        };
+        middleOrder.onclick=function(){
+        	tranverse(root,drawMiddle);
+        }
+        postorder.onclick=function(){
+        	tranverse(root,drawPost);
+        }
+
+
+
+
+}   
+	</script>
+       
+</body>
+</html>
