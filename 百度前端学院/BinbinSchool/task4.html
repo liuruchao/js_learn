@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟队列</title>
+	<style>
+		#showNum span{
+			margin-top: 1em;
+			margin-right: 1em;
+			display: inline-block;
+			padding:5px;
+			line-height: 30px;
+			background: red;
+			color:white;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="write">
+	<div id="btn">
+	<button id="l_push">左侧入</button>
+	<button id="r_push">右侧入</button>
+	<button id="l_remove">左侧出</button>
+	<button id="r_remove">右侧出</button>
+	<div id="showNum"></div>
+    </div>
+	<script>
+		var doc=document;  //提高性能
+		var write=doc.querySelector("#write"), //文本框值
+            btn=doc.querySelector("#btn"),
+            showNum=doc.querySelector("#showNum"),
+            data=[];
+
+         //将数值从左侧插入
+        function l_push(){
+           var value=write.value;
+           if(isNaN(value)){
+           	alert("请输入数值");
+           }else if(value==""){
+           	alert("不能为空");
+           }
+           else{
+           data.unshift(value);
+           var li=doc.createElement("span");
+           li.innerHTML=value;
+           showNum.insertBefore(li,showNum.firstChild);
+           } //将元素添加到父节点第一位
+        }
+        
+        //将数值从右侧入
+        function r_push(){
+        	var value=write.value;
+        	if(isNaN(value)){
+           	alert("请输入数值");
+           }else if(value==""){
+           	alert("不能为空");
+           }
+           else{
+        	data.push(value);
+        	var li=doc.createElement("span");
+           li.innerHTML=value;
+           showNum.appendChild(li);
+           } //将元素添加到父节点末尾
+        }
+        //将数值从左侧出
+        function l_remove(){
+        	showNum.removeChild(showNum.firstChild);
+        	alert(data.shift());
+	         
+        }
+        //将数值从右侧出
+        function r_remove(){
+        	showNum.removeChild(showNum.lastChild);
+        	alert(data.pop());
+        }
+        //添加按钮事件代理
+        btn.addEventListener("click",function(event){
+        	var target=event.target;
+        	switch(target.id){
+        		case "l_push":
+        		l_push();
+        		break;
+        		case "r_push":
+        		r_push();
+        		break;
+        		case "l_remove":
+        		if(data.length==0){
+        			alert("数据为空，不能删除");
+        		}else{
+        		l_remove();}
+        		break;
+        		case "r_remove":
+        		if(data.length==0){
+        			alert("数据为空，不能删除");
+        		}else{
+        		r_remove();}
+        		break;
+        	}
+        },false);
+        //移除事件按钮
+        showNum.addEventListener("click",function(event){
+        	var target=event.target;
+        	if(target.nodeName==="SPAN"){
+        		alert(target.innerHTML);
+        		showNum.removeChild(target);
+        	}
+        },false);
+	</script>
+</body>
+</html>
