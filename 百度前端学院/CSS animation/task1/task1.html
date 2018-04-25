@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>菜单动画效果</title>
+	<style>
+		#show{
+			width: 150px;
+			margin:2em auto;
+			font-size: 2em;
+			text-align: center;
+			position: relative;
+			padding-bottom:5px;
+		}
+		#show>span{
+			content:",";
+			position: absolute;
+			left:0;
+			bottom:-5px;
+			width: 100%;
+			height:5px;
+			background: red;
+			transform:scale(0);
+			transition:transform 0.5s ease-out;
+		}
+		#btn{
+			border:solid 1px grey;
+			border-radius:10px;
+			width: 100px;
+			margin:auto;
+			font-size: 1.5em;
+			padding:10px;
+		}
+		#btn:hover{
+			background: #D0CBCB;
+			color:white;
+			cursor:pointer;
+		}
+		#show:hover #show>span{
+			transform:scale(1);
+		}
+	</style>
+</head>
+<body>
+	<div id="show"><span></span>前端学院</div>
+	<div id="btn">切换样式</div>
+	<script>
+		var show=document.querySelector("#show"),
+		    btn=document.querySelector("#btn"),
+		    span=document.querySelector("span");
+		    // 动画出现
+		function transitionIn(){
+            var timer=setTimeout(function(){
+            	span.style.transform="scale(1)";
+            	show.style.color="red";
+            },10);
+            
+		}
+		   //动画消失
+		function transtionOut(){
+            var timer=setTimeout(function(){
+            	span.style.transform="scale(0)";
+            	show.style.color="black";
+            },10);
+            
+		}
+		btn.onmousedown=transitionIn;
+		btn.onmouseleave=transtionOut;
+	</script>
+</body>
+</html>
