@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css 2D变形</title>
+	<style>
+		div{
+			display: inline-block;
+			width: 150px;
+			line-height:150px;
+			margin:1.5em;
+			background: #E4E0E0;
+            text-align: center;
+		}
+		div:nth-child(2){
+			transform: translate(10px,20px);
+		}
+		div:nth-child(3){
+			transform:rotate(45deg);
+		}
+		div:nth-child(4){
+			transform:scaleX(0.5);
+			transform-origin:left;
+		}
+		div:nth-child(5){
+			transform:skew(30deg);
+		}
+		div:nth-child(6){
+			transform:translate(10px,20px) rotate(45deg) scaleX(0.5) skew(30deg);
+		}
+	</style>
+</head>
+<body>
+	<div title="盒子0">box0</div>
+	<div title="位移">box1</div>
+	<div title="旋转">box2</div>
+	<div title="压缩">box3</div>
+	<div title="倾斜">box4</div>
+	<div title="同时包含">box5</div>
+</body>
+</html>
