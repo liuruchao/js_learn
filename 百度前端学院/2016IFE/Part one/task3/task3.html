@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task3</title>
+    <style>
+    	.container{
+    		background:#eee;
+    		padding:20px;
+    		border:1px solid #999;
+    	}
+    	.container:after{
+    		content:'';
+    		display: block;
+    		clear:both;
+    	}
+    	/*团队名称及logo*/
+    	.team{
+    		width:200px;
+    		padding:20px;
+            background:white;
+            float:left;
+            margin-right:20px;
+    		}
+    	.logo{
+             background:#eee;
+             border:1px solid #999;
+             width:80px;
+             height:80px;
+             line-height: 80px;
+             float: left;
+             box-sizing: border-box;
+
+    	}
+    	/*团队介绍*/
+    	.introduce{
+    		overflow:hidden;
+    		border:1px solid #999;
+    		background: white;
+    		margin:0 20px;
+    		line-height: 2;
+    	}
+    	.person{
+    		width: 120px;
+    		padding:20px;
+    		float:right;
+    		background: white;
+    		margin-left:20px;
+    		box-sizing: border-box;
+    	}
+    	.person .logo{
+    		float:none;
+    		margin-bottom:20px;
+    	}
+    </style>
+</head>
+<body>
+	<div class="container">
+		<!-- 团队名称及logo -->
+		<div class="team">
+			<div class="logo"></div>
+			<p>团队名称</p>
+		</div>
+		<!-- 个人logo -->
+		<div class="person">
+			<div class="logo">个人简介</div>
+			<div class="logo">个人简介</div>
+			<div class="logo">个人简介</div>
+			<div class="logo">个人简介</div>
+		</div>
+		<!-- 团队简介 -->
+		<div class="introduce">
+			百度web前端技术学院是一个由百度人力资源部校园招聘组，百度EFF团队联合出品的，面向在校大学生以及对前端技术有兴趣前端在线学习平台，我们希望借助百度大量优秀的前端的工程师以及丰富的前端知识积累，帮组人们更加有趣高校，系统的学习web前端技术。
+			百度web前端技术学院是一个由百度人力资源部校园招聘组，百度EFF团队联合出品的，面向在校大学生以及对前端技术有兴趣前端在线学习平台，我们希望借助百度大量优秀的前端的工程师以及丰富的前端知识积累，帮组人们更加有趣高校，系统的学习web前端技术。
+		</div>
+	</div>
+</body>
+</html>
