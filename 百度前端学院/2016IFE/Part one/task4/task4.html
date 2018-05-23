@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task4</title>
+	<style>
+		.container{
+           position:fixed;
+           left:0;
+           right:0;
+           top:0;
+           bottom:0;
+           width: 400px;
+           height:200px;
+           margin:auto;
+           background: #eee;
+		}
+		.box{
+			position: relative;
+			height:100%;
+		}
+		/*圆角*/
+		.box .top{
+			width: 50px;
+			height:50px;
+			background:orange;
+			position: absolute;
+			border-radius: 0 0 100% 0;
+			left:0;
+			top:0;
+		}
+		.box .btm{
+			width:50px;
+			height:50px;
+			background:orange;
+			position: absolute;
+			border-radius: 100% 0 0 0;
+			right:0;
+			bottom:0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box">
+			<div class="top"></div>
+			<div class="btm"></div>
+		</div>
+	</div>
+</body>
+</html>
